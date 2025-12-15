@@ -10,100 +10,30 @@
 
   <!-- AOS (animations fluides) -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-      background: radial-gradient(circle at top, #111, #000);
-      color: #fff;
-      overflow-x: hidden;
-    }
+  body {
+    background: radial-gradient(circle at top, #111, #000);
+    color: #fff;
+    overflow-x: hidden;
+    scroll-snap-type: y proximity;
+  }
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 80px;
-      background: url('background.jpg') center/cover no-repeat;
-    }
+  section {
+    scroll-snap-align: start;
+  }
+</style>
 
-    .hero-text {
-      max-width: 600px;
-    }
-
-    .hero-text h1 {
-      font-size: 4rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .hero-text h1 span {
-      color: #ff3c3c;
-    }
-
-    .hero-text p {
-      margin: 20px 0 40px;
-      font-size: 1.1rem;
-      opacity: 0.8;
-    }
-
-    .btn {
-      padding: 15px 35px;
-      background: #ff3c3c;
-      color: #000;
-      font-weight: 700;
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(255,60,60,.4);
-    }
-
-    section {
-      padding: 100px 80px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #111, #0a0a0a);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.6);
-      transition: transform .4s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-    }
-
-    .card h3 {
-      margin-bottom: 15px;
-      color: #ff3c3c;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      background: #050505;
-      opacity: .6;
-    }
-
-    @media (max-width: 900px) {
-      header { flex-direction: column; padding: 60px 30px; }
-      .hero-text h1 { font-size: 3rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -115,21 +45,41 @@
   </div>
 </header>
 
-<section>
-  <div class="cards">
-    <div class="card" data-aos="fade-up">
-      <h3>🏋️ Programmes</h3>
-      <p>Programmes personnalisés selon ton niveau et tes objectifs.</p>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="150">
-      <h3>📅 Événements</h3>
-      <p>Stages, entraînements de groupe et compétitions.</p>
-    </div>
-    <div class="card" data-aos="fade-up" data-aos-delay="300">
-      <h3>🥗 Nutrition</h3>
-      <p>Conseils diététiques adaptés à la musculation.</p>
-    </div>
+<section id="programmes">
+  <h2 data-aos="fade-right" style="font-size:2.8rem;margin-bottom:20px">Programmes d'entraînement</h2>
+  <p data-aos="fade-up" style="opacity:.7;margin-bottom:60px">Scroll ultra fluide • Coaching clean • Performance réelle</p>
+
+  <!-- MARDI / VENDREDI -->
+  <div class="card" data-aos="fade-up">
+    <h3>Dos / Bras / Arrière épaule</h3>
+    <img src="images/exercice1.jpg" alt="dos" style="width:100%;border-radius:16px;margin:20px 0">
+    <p><strong>Dos</strong><br>
+    Tirage haut unilatéral • Tirage horizontal • Tirage vertical<br><br>
+    <strong>Arrière épaule</strong><br>
+    Corde • Machine hammer<br><br>
+    <strong>Biceps</strong><br>
+    Marteau banc • Banc incliné haltères</p>
   </div>
+
+  <!-- MERCREDI -->
+  <div class="card" data-aos="fade-up">
+    <h3>Quadriceps / Adducteurs</h3>
+    <img src="images/exercice2.jpg" alt="jambes" style="width:100%;border-radius:16px;margin:20px 0">
+    <p>Squat • Presse • Leg extension • Adducteurs</p>
+  </div>
+
+  <!-- SAMEDI -->
+  <div class="card" data-aos="fade-up">
+    <h3>Ischios / Fessiers</h3>
+    <img src="images/exercice3.jpg" alt="ischios" style="width:100%;border-radius:16px;margin:20px 0">
+    <p>Ischio machine • Leg curl • Fessiers</p>
+  </div>
+</section>
+
+<section id="instagram">
+  <h2 data-aos="fade-right" style="font-size:2.5rem;margin-bottom:40px">Instagram</h2>
+  <p data-aos="fade-up" style="margin-bottom:30px;opacity:.8">Suivez Tony Performance pour les entraînements, conseils et événements.</p>
+  <a href="https://www.instagram.com/tony.performance91/" target="_blank" class="btn">Voir Instagram</a>
 </section>
 
 <footer>
