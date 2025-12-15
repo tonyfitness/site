@@ -3,83 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Performance Muscu</title>
+  <title>Diet & Muscu – Tony Performance</title>
 
   <!-- Police -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
 
-  <!-- AOS (animations fluides) -->
+  <!-- AOS animations -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-  }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-  body {
-    background: radial-gradient(circle at top, #111, #000);
-    color: #fff;
-    overflow-x: hidden;
-    scroll-snap-type: y proximity;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  section {
-    scroll-snap-align: start;
-  }
-</style>
+    body {
+      background: radial-gradient(circle at top, #111, #000);
+      color: #fff;
+      overflow-x: hidden;
+      scroll-snap-type: y proximity;
+    }
 
+    section {
+      scroll-snap-align: start;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 30px;
+    }
+
+    /* HERO */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.9));
+    }
+
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    header h1 span {
+      color: #ff3c3c;
+    }
+
+    header p {
+      margin: 25px 0 45px;
+      font-size: 1.1rem;
+      opacity: .8;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 38px;
+      background: #ff3c3c;
+      color: #000;
+      font-weight: 700;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(255,60,60,.45);
+    }
+
+    /* TITRES */
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      letter-spacing: -1px;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      color: #ff3c3c;
+    }
+
+    .subtitle {
+      opacity: .7;
+      margin-bottom: 60px;
+    }
+
+    /* PROGRAMMES */
+    .program-card {
+      background: linear-gradient(145deg, #111, #0a0a0a);
+      border-radius: 26px;
+      padding: 45px;
+      margin-bottom: 70px;
+      box-shadow: 0 35px 90px rgba(0,0,0,.7);
+    }
+
+    img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin: 30px 0;
+    }
+
+    /* INSTAGRAM */
+    #instagram a {
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #050505;
+      opacity: .6;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 900px) {
+      header h1 { font-size: 3rem; }
+      .container { padding: 80px 20px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- HERO -->
 <header>
-  <div class="hero-text" data-aos="fade-right">
+  <div class="container" data-aos="fade-right">
     <h1>DIET <span>&</span> MUSCU</h1>
     <p>Ici on s'entraîne sans filtre. Programmes, événements et suivi sérieux.</p>
-    <button class="btn">Rejoins-nous</button>
+    <a class="btn" href="#programmes">Rejoins-nous</a>
   </div>
 </header>
 
+<!-- PROGRAMMES -->
 <section id="programmes">
-  <h2 data-aos="fade-right" style="font-size:2.8rem;margin-bottom:20px">Programmes d'entraînement</h2>
-  <p data-aos="fade-up" style="opacity:.7;margin-bottom:60px">Scroll ultra fluide • Coaching clean • Performance réelle</p>
+  <div class="container">
+    <h2 data-aos="fade-up">Programmes d'entraînement</h2>
+    <p class="subtitle" data-aos="fade-up">Scroll ultra fluide · Coaching clean · Performance réelle</p>
 
-  <!-- MARDI / VENDREDI -->
-  <div class="card" data-aos="fade-up">
-    <h3>Dos / Bras / Arrière épaule</h3>
-    <img src="images/exercice1.jpg" alt="dos" style="width:100%;border-radius:16px;margin:20px 0">
-    <p><strong>Dos</strong><br>
-    Tirage haut unilatéral • Tirage horizontal • Tirage vertical<br><br>
-    <strong>Arrière épaule</strong><br>
-    Corde • Machine hammer<br><br>
-    <strong>Biceps</strong><br>
-    Marteau banc • Banc incliné haltères</p>
-  </div>
+    <div class="program-card" data-aos="fade-up">
+      <h3>Dos / Bras / Arrière épaule</h3>
+      <img src="images/exercice1.jpg" alt="dos">
+      <p>
+        <strong>Dos</strong><br>
+        Tirage haut unilatéral · Tirage horizontal · Tirage vertical<br><br>
+        <strong>Arrière épaule</strong><br>
+        Corde · Machine hammer<br><br>
+        <strong>Biceps</strong><br>
+        Marteau banc · Banc incliné haltères
+      </p>
+    </div>
 
-  <!-- MERCREDI -->
-  <div class="card" data-aos="fade-up">
-    <h3>Quadriceps / Adducteurs</h3>
-    <img src="images/exercice2.jpg" alt="jambes" style="width:100%;border-radius:16px;margin:20px 0">
-    <p>Squat • Presse • Leg extension • Adducteurs</p>
-  </div>
+    <div class="program-card" data-aos="fade-up">
+      <h3>Quadriceps / Adducteurs</h3>
+      <img src="images/exercice2.jpg" alt="jambes">
+      <p>Squat · Presse · Leg extension · Adducteurs</p>
+    </div>
 
-  <!-- SAMEDI -->
-  <div class="card" data-aos="fade-up">
-    <h3>Ischios / Fessiers</h3>
-    <img src="images/exercice3.jpg" alt="ischios" style="width:100%;border-radius:16px;margin:20px 0">
-    <p>Ischio machine • Leg curl • Fessiers</p>
+    <div class="program-card" data-aos="fade-up">
+      <h3>Ischios / Fessiers</h3>
+      <img src="images/exercice3.jpg" alt="ischios">
+      <p>Ischio machine · Leg curl · Fessiers</p>
+    </div>
   </div>
 </section>
 
+<!-- INSTAGRAM -->
 <section id="instagram">
-  <h2 data-aos="fade-right" style="font-size:2.5rem;margin-bottom:40px">Instagram</h2>
-  <p data-aos="fade-up" style="margin-bottom:30px;opacity:.8">Suivez Tony Performance pour les entraînements, conseils et événements.</p>
-  <a href="https://www.instagram.com/tony.performance91/" target="_blank" class="btn">Voir Instagram</a>
+  <div class="container" data-aos="fade-up">
+    <h2>Instagram</h2>
+    <p class="subtitle">Suivez Tony Performance pour les entraînements, conseils et événements.</p>
+    <a class="btn" target="_blank" href="https://www.instagram.com/tony.performance91/">Voir Instagram</a>
+  </div>
 </section>
 
 <footer>
@@ -89,9 +196,10 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 900,
-    easing: 'ease-out-cubic',
-    once: true
+    duration: 1200,
+    easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+    once: true,
+    offset: 120
   });
 </script>
 
