@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance Muscu</title>
+
+  <!-- Police -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- AOS (animations fluides) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top, #111, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px;
+      background: url('background.jpg') center/cover no-repeat;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .hero-text h1 span {
+      color: #ff3c3c;
+    }
+
+    .hero-text p {
+      margin: 20px 0 40px;
+      font-size: 1.1rem;
+      opacity: 0.8;
+    }
+
+    .btn {
+      padding: 15px 35px;
+      background: #ff3c3c;
+      color: #000;
+      font-weight: 700;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,60,60,.4);
+    }
+
+    section {
+      padding: 100px 80px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #111, #0a0a0a);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      transition: transform .4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #ff3c3c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #050505;
+      opacity: .6;
+    }
+
+    @media (max-width: 900px) {
+      header { flex-direction: column; padding: 60px 30px; }
+      .hero-text h1 { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero-text" data-aos="fade-right">
+    <h1>DIET <span>&</span> MUSCU</h1>
+    <p>Ici on s'entraîne sans filtre. Programmes, événements et suivi sérieux.</p>
+    <button class="btn">Rejoins-nous</button>
+  </div>
+</header>
+
+<section>
+  <div class="cards">
+    <div class="card" data-aos="fade-up">
+      <h3>🏋️ Programmes</h3>
+      <p>Programmes personnalisés selon ton niveau et tes objectifs.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="150">
+      <h3>📅 Événements</h3>
+      <p>Stages, entraînements de groupe et compétitions.</p>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300">
+      <h3>🥗 Nutrition</h3>
+      <p>Conseils diététiques adaptés à la musculation.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Performance Muscu – Tous droits réservés
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    easing: 'ease-out-cubic',
+    once: true
+  });
+</script>
+
+</body>
+</html>
