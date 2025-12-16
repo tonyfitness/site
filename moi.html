@@ -16,9 +16,36 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
       padding: 120px 30px;
+    }
+
+    .about-wrapper {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1;
+      animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .about-image {
+      flex: 1;
+      animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.6);
+      transition: transform .6s ease;
+    }
+
+    .about-image img:hover {
+      transform: scale(1.03);
     }
 
     h1 {
@@ -34,17 +61,9 @@
       margin-bottom: 20px;
     }
 
-    .hero-img {
-      width: 100%;
-      height: 420px;
-      background: url('images/presentation.jpg') center/cover no-repeat;
-      border-radius: 24px;
-      margin-bottom: 50px;
-    }
-
     .back {
       display: inline-block;
-      margin-top: 40px;
+      margin-top: 30px;
       padding: 14px 36px;
       background: #ff3c3c;
       color: #000;
@@ -53,35 +72,53 @@
       text-decoration: none;
     }
 
-    .back:hover { opacity: .9; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .about-wrapper {
+        flex-direction: column;
+      }
+      h1 { font-size: 2.6rem; }
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
 
-    <div class="hero-img"></div>
+    <div class="about-wrapper">
 
-    <h1>Delaunay <span>Tony</span></h1>
-    <p><strong>Âge :</strong> 29 ans</p>
+      <div class="about-text">
+        <h1>Delaunay <span>Tony</span></h1>
+        <p><strong>Âge :</strong> 29 ans</p>
 
-    <p>
-      J’ai commencé la musculation à 16 ans avec, bien évidemment, des arrêts.
-      Mais à chaque reprise, j’ai toujours voulu aller plus loin et revenir plus fort.
-    </p>
+        <p>
+          J’ai commencé la musculation à 16 ans avec, bien évidemment, des arrêts.
+          Mais à chaque reprise, j’ai toujours voulu aller plus loin et revenir plus fort.
+        </p>
 
-    <p>
-      Avec le temps, la discipline est devenue une passion, puis un mode de vie.
-      J’ai réussi à en faire mon métier et aujourd’hui je travaille chez <strong>Fitness Park</strong>.
-    </p>
+        <p>
+          Avec le temps, la discipline est devenue une passion, puis un mode de vie.
+          J’ai réussi à en faire mon métier et aujourd’hui je travaille chez <strong>Fitness Park</strong>.
+        </p>
 
-    <p>
-      Mon objectif est désormais de développer ce projet encore plus loin :
-      partager mon quotidien, organiser des bootcamps, proposer des ateliers
-      et accompagner les personnes qui veulent réellement progresser.
-    </p>
+        <p>
+          Mon objectif est désormais de développer ce projet encore plus loin :
+          partager mon quotidien, organiser des bootcamps, proposer des ateliers
+          et accompagner les personnes qui veulent réellement progresser.
+        </p>
 
-    <a href="index.html" class="back">Retour au site</a>
+        <a href="index.html" class="back">Retour au site</a>
+      </div>
+
+      <div class="about-image">
+        <img src="images/presentation.jpg" alt="Présentation Tony">
+      </div>
+
+    </div>
 
   </div>
 
