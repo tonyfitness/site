@@ -5,160 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diet & Muscu – Tony Performance</title>
 
-  <!-- Police -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
-
-  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: radial-gradient(circle at top, #111, #000);
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    section { padding: 120px 0; }
-    .container { max-width: 1200px; margin: auto; padding: 0 30px; }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{background:radial-gradient(circle at top,#111,#000);color:#fff;overflow-x:hidden;}
+    section{padding:120px 0;}
+    .container{max-width:1200px;margin:auto;padding:0 30px;}
 
     /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(0,0,0,.6);
-      backdrop-filter: blur(10px);
-    }
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 70px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: 500;
-      opacity: .8;
-    }
-    nav a:hover { opacity: 1; }
+    nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(0,0,0,.6);backdrop-filter:blur(10px);}
+    nav .container{display:flex;justify-content:space-between;align-items:center;height:70px;}
+    nav a{color:#fff;text-decoration:none;margin-left:25px;font-weight:500;opacity:.8;}
+    nav a:hover{opacity:1;}
 
-    /* HERO */
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      position:relative;
-    }
-
+    /* HERO slider (4 images) */
+    header.hero{min-height:100vh;display:flex;align-items:center;position:relative;}
     .hero-bg{
-      position:absolute;
-      inset:90px 30px;
-      border-radius:42px;
-      overflow:hidden;
-      box-shadow: 0 40px 140px rgba(0,0,0,.8);
+      position:absolute; inset:90px 30px;
+      border-radius:42px; overflow:hidden;
+      box-shadow:0 40px 140px rgba(0,0,0,.8);
       z-index:0;
     }
-
     .hero-slide{
-      position:absolute;
-      inset:0;
-      background-size:cover;
-      background-position:center;
+      position:absolute; inset:0;
+      background-size:cover; background-position:center;
       transform:scale(1.05);
       filter:brightness(.55);
       opacity:0;
-      animation: heroFade 24s infinite;
+      animation:heroFade 24s infinite;
     }
-
-    .hero-slide.s1{ background-image:url('images/hero1.jpg'); animation-delay:0s; }
-    .hero-slide.s2{ background-image:url('images/hero2.jpg'); animation-delay:6s; }
-    .hero-slide.s3{ background-image:url('images/hero3.jpg'); animation-delay:12s; }
-    .hero-slide.s4{ background-image:url('images/hero4.jpg'); animation-delay:18s; }
+    .hero-slide.s1{background-image:url('images/hero1.jpg');animation-delay:0s;}
+    .hero-slide.s2{background-image:url('images/hero2.jpg');animation-delay:6s;}
+    .hero-slide.s3{background-image:url('images/hero3.jpg');animation-delay:12s;}
+    .hero-slide.s4{background-image:url('images/hero4.jpg');animation-delay:18s;}
 
     @keyframes heroFade{
-      0%{ opacity:0; }
-      8%{ opacity:1; }
-      25%{ opacity:1; }
-      33%{ opacity:0; }
-      100%{ opacity:0; }
+      0%{opacity:0;}
+      8%{opacity:1;}
+      25%{opacity:1;}
+      33%{opacity:0;}
+      100%{opacity:0;}
     }
 
-    .hero .container{
-      position:relative;
-      z-index:1;
-      text-align:center;
-    }
-
-    header h1 {
-      font-size: 4.5rem;
-      font-weight: 900;
-    }
-    header span { color: #ff3c3c; }
-    header p {
-      margin: 25px auto 45px;
-      opacity: .85;
-      max-width: 520px;
-    }
+    header.hero .container{position:relative;z-index:1;}
+    header h1{font-size:4.5rem;font-weight:900;}
+    header span{color:#ff3c3c;}
+    header p{margin:25px 0 45px;opacity:.85;max-width:520px;}
 
     .btn{
-      display:inline-block;
-      padding:16px 40px;
-      background:#ff3c3c;
-      color:#000;
-      border-radius:40px;
-      font-weight:700;
-      text-decoration:none;
-      transition:.3s;
+      display:inline-block;padding:16px 40px;background:#ff3c3c;color:#000;
+      border-radius:40px;font-weight:700;text-decoration:none;
+      transition:transform .3s ease, box-shadow .3s ease;
     }
-    .btn:hover{
-      transform:translateY(-4px);
-      box-shadow:0 20px 50px rgba(255,60,60,.4);
+    .btn:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(255,60,60,.4);}
+
+    /* TITRES / CARDS */
+    h2{font-size:3rem;margin-bottom:20px;}
+    h3{color:#ff3c3c;margin-bottom:15px;}
+    .subtitle{opacity:.6;margin-bottom:70px;}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;}
+    .card{
+      background:linear-gradient(145deg,#111,#0a0a0a);
+      border-radius:26px;padding:35px;
+      box-shadow:0 35px 90px rgba(0,0,0,.7);
     }
 
-    /* SECTIONS */
-    h2 { font-size: 3rem; margin-bottom: 20px; }
-    h3 { color: #ff3c3c; margin-bottom: 15px; }
-    .subtitle { opacity: .6; margin-bottom: 70px; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
+    /* PARALLAX */
+    .parallax{
+      width:100%;height:260px;border-radius:18px;
+      background-size:cover;background-position:center;
+      margin-bottom:20px;transform:translateY(0);
+      will-change:transform;
     }
 
-    .card {
-      background: linear-gradient(145deg, #111, #0a0a0a);
-      border-radius: 26px;
-      padding: 35px;
-      box-shadow: 0 35px 90px rgba(0,0,0,.7);
+    /* VIDEO THUMB */
+    .video-thumb{position:relative;max-width:340px;margin:10px auto 0;cursor:pointer;user-select:none;}
+    .video-thumb video{
+      width:100%;aspect-ratio:9/16;object-fit:cover;
+      border-radius:22px;filter:brightness(.85);
+      display:block;background:#000;
     }
+    .play-btn{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+      font-size:64px;color:#fff;background:rgba(0,0,0,.25);
+      border-radius:22px;transition:.25s ease;text-shadow:0 10px 30px rgba(0,0,0,.8);
+    }
+    .video-thumb:hover .play-btn{background:rgba(0,0,0,.45);transform:scale(1.04);}
 
-    footer {
-      text-align:center;
-      padding:40px;
-      opacity:.5;
-      background:#050505;
+    /* MODAL FLOU */
+    .video-modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.55);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      display:flex;align-items:center;justify-content:center;
+      opacity:0;pointer-events:none;transition:.25s ease;z-index:2000;padding:20px;
     }
+    .video-modal.active{opacity:1;pointer-events:auto;}
+    .video-wrap{position:relative;transform:scale(.92);opacity:0;transition:.25s ease;}
+    .video-modal.active .video-wrap{transform:scale(1);opacity:1;}
+    .video-modal video{
+      max-height:85vh;width:min(420px,92vw);
+      aspect-ratio:9/16;border-radius:26px;
+      box-shadow:0 40px 120px rgba(0,0,0,.85);
+      background:#000;display:block;
+    }
+    .close-btn{
+      position:absolute;top:-14px;right:-14px;width:42px;height:42px;
+      border-radius:999px;border:0;background:rgba(255,255,255,.12);
+      color:#fff;font-size:20px;cursor:pointer;
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      box-shadow:0 20px 60px rgba(0,0,0,.6);
+    }
+    .close-btn:hover{background:rgba(255,255,255,.18);}
+
+    footer{text-align:center;padding:40px;opacity:.5;background:#050505;}
 
     @media (max-width:900px){
-      header h1{ font-size:3rem; }
-      .hero-bg{
-        inset:90px 16px;
-        border-radius:28px;
-      }
+      header h1{font-size:3rem;}
+      .hero-bg{inset:90px 16px;border-radius:28px;}
     }
   </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="container">
     <strong>TONY PERFORMANCE</strong>
@@ -166,14 +139,13 @@
       <a href="#programmes">Programmes</a>
       <a href="#evenements">Événements</a>
       <a href="#contact">Coaching</a>
-      <a href="moi.html">À propos</a>
+      <a href="moi.html">à propos</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <header class="hero">
-  <div class="hero-bg">
+  <div class="hero-bg" aria-hidden="true">
     <div class="hero-slide s1"></div>
     <div class="hero-slide s2"></div>
     <div class="hero-slide s3"></div>
@@ -187,15 +159,70 @@
   </div>
 </header>
 
-<!-- PROGRAMMES -->
 <section id="programmes">
   <div class="container">
     <h2 data-aos="fade-up">Programmes détaillés</h2>
     <p class="subtitle">1 exercice = 1 carte • Progression maîtrisée</p>
+
+    <div class="grid">
+      <div class="card" data-aos="fade-up">
+        <div class="parallax" style="background-image:url('images/exercice1.jpg')"></div>
+        <h3>Tirage haut unilatéral</h3>
+        <p>1x15 • 1x12 • 1x8</p>
+      </div>
+
+      <div class="card" data-aos="fade-up">
+        <div class="parallax" style="background-image:url('images/exercice2.jpg')"></div>
+        <h3>Squat</h3>
+        <p>1x12 • 1x10 • 1x8</p>
+      </div>
+
+      <div class="card" data-aos="fade-up">
+        <div class="parallax" style="background-image:url('images/exercice3.jpg')"></div>
+        <h3>Leg curl</h3>
+        <p>1x15 • 1x12 • 1x10 • 1x8</p>
+      </div>
+
+      <!-- VIDEO CARD -->
+      <div class="card" data-aos="fade-up">
+        <h3>Présentation (vidéo)</h3>
+
+        <div class="video-thumb" onclick="openVideo()">
+          <video muted playsinline preload="auto">
+            <source src="tony_H264.mp4" type="video/mp4">
+          </video>
+          <span class="play-btn">▶</span>
+        </div>
+
+        <p style="opacity:.7; margin-top:14px; text-align:center;">
+          Clique pour lancer (fond flouté).
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- MODAL VIDEO -->
+<div id="videoModal" class="video-modal" onclick="closeVideo(event)">
+  <div class="video-wrap">
+    <button class="close-btn" aria-label="Fermer" onclick="forceClose()">✕</button>
+
+    <video id="modalVideo" controls playsinline preload="auto">
+      <source src="tony_H264.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<section id="evenements">
+  <div class="container">
+    <h2 data-aos="fade-up">Événements</h2>
+    <p class="subtitle">Stages • Entraînements de groupe • Challenges</p>
+    <div class="card" data-aos="fade-up">
+      <p>📅 Prochain événement annoncé sur Instagram</p>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container" data-aos="fade-up">
     <h2>Coaching / Contact</h2>
@@ -208,7 +235,41 @@
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 1200, once: true });
+  AOS.init({ duration: 1200, easing: 'cubic-bezier(0.22,1,0.36,1)', once: true });
+
+  // PARALLAX
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.parallax').forEach(el => {
+      const speed = 0.25;
+      const offset = window.scrollY - el.offsetTop;
+      el.style.transform = `translateY(${offset * speed}px)`;
+    });
+  });
+
+  // VIDEO MODAL
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+
+  function openVideo(){
+    modal.classList.add('active');
+    video.pause();
+    video.currentTime = 0;
+    video.load();
+    video.play().catch(() => {});
+  }
+
+  function closeVideo(e){
+    if(e.target === modal) forceClose();
+  }
+
+  function forceClose(){
+    modal.classList.remove('active');
+    video.pause();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modal.classList.contains('active')) forceClose();
+  });
 </script>
 
 </body>
