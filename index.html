@@ -227,15 +227,14 @@
         <h3>Présentation (vidéo)</h3>
 
         <div class="video-thumb" onclick="openVideo()">
-          <!-- Aperçu (muted) -->
-          <video muted playsinline preload="metadata">
+          <video muted playsinline preload="auto">
             <source src="tony.mp4" type="video/mp4">
           </video>
           <span class="play-btn">▶</span>
         </div>
 
         <p style="opacity:.7; margin-top:14px; text-align:center;">
-          Clique pour lancer en plein écran flouté.
+          Clique pour lancer (fond flouté).
         </p>
       </div>
     </div>
@@ -247,9 +246,11 @@
   <div class="video-wrap">
     <button class="close-btn" aria-label="Fermer" onclick="forceClose()">✕</button>
 
-    <video id="modalVideo" controls playsinline>
+    <video id="modalVideo" controls playsinline preload="auto">
       <source src="tony.mp4" type="video/mp4">
     </video>
+
+    <p id="videoError" style="margin-top:12px; opacity:.85; text-align:center;"></p>
   </div>
 </div>
 
@@ -288,22 +289,37 @@
     });
   });
 
-  // VIDEO MODAL
+  // VIDEO MODAL + DEBUG
   const modal = document.getElementById('videoModal');
   const video = document.getElementById('modalVideo');
+  const videoError = document.getElementById('videoError');
 
   function openVideo(){
     modal.classList.add('active');
+    videoError.textContent = "";
 
-    // force un vrai chargement + lecture
     video.pause();
     video.currentTime = 0;
     video.load();
-    video.play().catch(err => console.log("Lecture bloquée :", err));
+
+    video.play().catch(err => {
+      videoError.textContent = "Lecture bloquée par le navigateur.";
+      console.log(err);
+    });
   }
 
+  video.addEventListener("error", () => {
+    const err = video.error;
+    if(err){
+      if(err.code === 4){
+        videoError.textContent = "❌ Format/codec non supporté. Reconvertis en MP4 H.264 (très fréquent si vidéo iPhone HEVC).";
+      } else {
+        videoError.textContent = "❌ Impossible de charger la vidéo. Vérifie que tony.mp4 est bien à la racine du site.";
+      }
+    }
+  });
+
   function closeVideo(e){
-    // ferme seulement si on clique sur le fond flou
     if(e.target === modal){
       forceClose();
     }
@@ -314,7 +330,6 @@
     video.pause();
   }
 
-  // Fermer avec ESC
   document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape' && modal.classList.contains('active')){
       forceClose();
